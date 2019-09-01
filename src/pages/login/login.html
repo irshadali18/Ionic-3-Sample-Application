@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="loginForm">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" formControlName="email" name="email"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.email" >
+        <div class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            <p>{{validation.message}}</p>
+        </div>
+      </ng-container>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" formControlName="password" name="password"></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let validation of validation_messages.password" >
+        <div class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            <p>{{validation.message}}</p>
+        </div>
+      </ng-container>
+      <div padding>
+        <button ion-button color="primary" (click)="doLogin()" block>Login</button>
+        <p></p>
+        <p></p>
+        <p>Don't have an account? <a href="javascript:{};" (click)="gotoRegister()" color="secondary">Create Account</a></p>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

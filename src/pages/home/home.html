@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>	
+  <h4>Hello! {{userName}}</h4>
+  <p>You are successfully logged In!</p>
+  <p></p>
+  <p></p>
+  <p>
+  	<button ion-button color="default" (click)="sendPushNotification()" block>Send Push Notification</button>
+  </p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p><a href="#" (click)="logout()">Logout</a></p>
+</ion-content>
